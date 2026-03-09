@@ -1,0 +1,32 @@
+{
+  "terms": [
+    {"en": "Stochastic Computing", "cn": "随机计算", "abbr": "SC"},
+    {"en": "Binary Number", "cn": "二进制数", "abbr": "BN"},
+    {"en": "Hybrid Logic Computing", "cn": "混合逻辑计算", "abbr": "HSC"},
+    {"en": "Stochastic Bit Stream", "cn": "随机比特流", "abbr": "SB"},
+    {"en": "Random Number Generator", "cn": "随机数生成器", "abbr": "RNG"},
+    {"en": "Linear Feedback Shift Register", "cn": "线性反馈移位寄存器", "abbr": "LFSR"},
+    {"en": "Field-Programmable Gate Array", "cn": "现场可编程门阵列", "abbr": "FPGA"},
+    {"en": "Mean Absolute Error", "cn": "平均绝对误差", "abbr": "MAE"},
+    {"en": "Binary-Interfaced Stochastic Computing", "cn": "二进制接口随机计算", "abbr": "BISC"},
+    {"en": "Look-Up Table", "cn": "查找表", "abbr": "LUT"},
+    {"en": "Flip-Flop", "cn": "触发器", "abbr": "FF"},
+    {"en": "Operations Per Second", "cn": "每秒操作数", "abbr": "OPS"},
+    {"en": "Expectation", "cn": "期望", "abbr": "E"},
+    {"en": "Probability", "cn": "概率", "abbr": "P"},
+    {"en": "Bernoulli Experiment", "cn": "伯努利试验", "abbr": ""},
+    {"en": "Bit Flip Rate", "cn": "比特翻转率", "abbr": ""},
+    {"en": "Noise Tolerance", "cn": "噪声容限", "abbr": ""},
+    {"en": "Latency", "cn": "延迟", "abbr": ""},
+    {"en": "Area Efficiency", "cn": "面积效率", "abbr": ""},
+    {"en": "Energy Efficiency", "cn": "能耗效率", "abbr": ""},
+    {"en": "Progressive Precision", "cn": "渐进精度", "abbr": ""},
+    {"en": "Pseudorandom Sequence", "cn": "伪随机序列", "abbr": ""},
+    {"en": "Thermometer Encoder", "cn": "温度计编码器", "abbr": ""},
+    {"en": "Unipolar", "cn": "单极性", "abbr": ""},
+    {"en": "Bipolar", "cn": "双极性", "abbr": ""},
+    {"en": "Sobol Sequence", "cn": "Sobol序列", "abbr": ""},
+    {"en": "True Random Number Generator", "cn": "真随机数生成器", "abbr": "TRNG"},
+    {"en": "Pseudorandom Number Generator", "cn": "伪随机数生成器", "abbr": "PRNG"}
+  ]
+}
