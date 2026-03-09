@@ -33,12 +33,12 @@
 \RequirePackage{array}
 \RequirePackage[version=4]{mhchem} % 有机化学作图
 \RequirePackage{siunitx} % 物理化学带单位量
+\RequirePackage{enumitem} % 自定义列表格式
 \RequirePackage{caption} % 自定义浮动窗口标题格式
 \RequirePackage[linesnumbered,ruled,vlined]{algorithm2e} % 伪代码
 \RequirePackage{booktabs}
 \RequirePackage{listings} % 源码插入
 \RequirePackage{fontspec} % 字体设置
-\RequirePackage[numbers,sort&compress]{gbt7714}
 \RequirePackage{floatrow} % 浮动体格式设置
 \RequirePackage{ifthen} % LaTeX 逻辑判断
 \RequirePackage[most]{tcolorbox} % 自定义盒子样式
@@ -195,21 +195,14 @@
 
 % ctex
 % 各级标题格式设置
-% \ctexset{
-%     chapter = {
-%         format = {\chapterbox}, % 使用章标题盒子样式
-%         aftername = {\\},
-%         aftertitle = {\par}
-%     },
-%     section = {
-%         name = {第,节},
-%         number = \arabic{section},
-%         format = {\zihao{3}\bfseries},
-%     },
-%     subsection = {
-%         format = {\zihao{4}\bfseries},
-%     },
-% }
+\ctexset{
+    section = {
+        format = {\centering\zihao{4}\bfseries},
+    },
+    subsection = {
+        format = {\zihao{-4}\bfseries},
+    },
+}
 
 % fontspec
 % 默认英文字体设置为 Times New Roman
