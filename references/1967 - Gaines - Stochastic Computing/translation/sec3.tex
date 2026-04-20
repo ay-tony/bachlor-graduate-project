@@ -1,0 +1,33 @@
+\section{随机计算}
+
+尽管在某些情况下，概率的 $[0, 1]$ 范围可以直接用于计算，例如 Bayes 估计与预测，但通常需要通过缩放和原点平移将模拟变量映射到该范围. 已研究了许多映射方法，但本文考虑的两种映射具有特殊意义，因其产生的计算类似于传统模拟计算机的计算. 这两种映射是：
+
+\begin{enumerate}
+    \item[(i)] 单线对称表示. 给定一个量 $\mathbf{E}$，其范围为 $-\mathbf{V} \leqslant \mathbf{E} \leqslant \mathbf{V}$，用一个生成概率为 $\mathfrak{p}$ 的序列来表示它，使得：
+\end{enumerate}
+
+\[
+p (O N) = \frac {1}{2} E / V + \frac {1}{2} \tag {1}
+\]
+
+因此，最大正量由始终为 ON 的逻辑电平表示，最大负量由始终为 OFF 的逻辑电平表示，而零量则由 ON 和 OFF 概率相等的随机序列表示.
+
+\begin{enumerate}
+    \item[(ii)] 双线对称表示. 第一种表示存在一个缺点，即零量是以最大方差表示的. 当需要区分接近零的值时，最好使用双线随机表示. 设量 $\mathbf{E}$ 的范围为 $-\mathbf{V} \leqslant \mathbf{E} \leqslant \mathbf{V}$，用两条线上的序列表示，即 UP 线和 DOWN 线，使得：
+\end{enumerate}
+
+\[
+p (U P = O N) = \left\{ \begin{array}{l l} E / V & \text {i f} E > 0 \\ 0 & \text {i f} E \leqslant 0 \end{array} \right. \tag {2}
+\]
+
+\[
+p (\text {D O W N} = \text {O N}) = \left\{ \begin{array}{l l} - E / V & \text {i f} E <   0 \\ 0 & \text {i f} E \geqslant 0 \end{array} \right. \tag {3}
+\]
+
+这些方程给出了一种最小方差表示，但这不一定在计算过程中保持，而双线对称表示的最一般形式来自逆方程：
+
+\[
+\mathrm {E} / \mathrm {V} = \mathrm {p} (\mathrm {U P} = \mathrm {O N}) - \mathrm {p} (\mathrm {D O W N} = \mathrm {O N}) \tag {4}
+\]
+
+下面描述用于执行完整模拟计算功能（包括反相、乘法、加法、积分等）的随机计算元件，这些元件使用对随机序列进行操作的同步逻辑元件.

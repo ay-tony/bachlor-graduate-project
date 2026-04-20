@@ -1,0 +1,176 @@
+{
+  "title": "术语表 - 混合随机数及其神经网络计算",
+  "description": "本文档包含论文中使用的专业术语中英文对照",
+  "terms": [
+    {
+      "english": "Stochastic Computing (SC)",
+      "chinese": "随机计算",
+      "definition": "一种基于随机数（比特流）而非二进制数的算术计算方式"
+    },
+    {
+      "english": "Stochastic Number (SN)",
+      "chinese": "随机数",
+      "definition": "通过CMOS门电路以伪模拟概率形式表示信息的数字表示方法"
+    },
+    {
+      "english": "Hybrid Stochastic Number (HSN)",
+      "chinese": "混合随机数",
+      "definition": "本文提出的二进制数与随机数表示的新型混合数制"
+    },
+    {
+      "english": "Hybrid Stochastic Computing (HSC)",
+      "chinese": "混合随机计算",
+      "definition": "基于混合随机数表示的计算方法"
+    },
+    {
+      "english": "Binary Number (BN)",
+      "chinese": "二进制数",
+      "definition": "传统的基于位置数制的数字表示方法"
+    },
+    {
+      "english": "bitstream",
+      "chinese": "比特流",
+      "definition": "由0和1组成的序列，用于表示随机数"
+    },
+    {
+      "english": "unipolar",
+      "chinese": "单极性",
+      "definition": "随机数表示格式，期望值范围为[0, 1]"
+    },
+    {
+      "english": "bipolar",
+      "chinese": "双极性",
+      "definition": "随机数表示格式，期望值范围为[-1, 1]"
+    },
+    {
+      "english": "Random Number Generator (RNG)",
+      "chinese": "随机数生成器",
+      "definition": "用于生成随机序列的电路或算法"
+    },
+    {
+      "english": "Application-Specific Integrated Circuit (ASIC)",
+      "chinese": "专用集成电路",
+      "definition": "为特定应用设计的定制集成电路"
+    },
+    {
+      "english": "Central Processing Unit (CPU)",
+      "chinese": "中央处理器",
+      "definition": "通用计算处理单元"
+    },
+    {
+      "english": "Graphics Processing Unit (GPU)",
+      "chinese": "图形处理器",
+      "definition": "专门用于图形处理的并行计算单元"
+    },
+    {
+      "english": "Neural Processing Unit (NPU)",
+      "chinese": "神经网络处理单元",
+      "definition": "专门用于神经网络计算的硬件加速器"
+    },
+    {
+      "english": "Multiply-Accumulate (MAC)",
+      "chinese": "乘累加",
+      "definition": "先执行乘法再执行加法的运算操作"
+    },
+    {
+      "english": "Convolutional Neural Network (CNN)",
+      "chinese": "卷积神经网络",
+      "definition": "一种深度学习架构，使用卷积层提取特征"
+    },
+    {
+      "english": "Deep Neural Network (DNN)",
+      "chinese": "深度神经网络",
+      "definition": "具有多个隐藏层的神经网络"
+    },
+    {
+      "english": "Field-Programmable Gate Array (FPGA)",
+      "chinese": "现场可编程门阵列",
+      "definition": "可编程的逻辑器件，用于硬件原型验证"
+    },
+    {
+      "english": "Look-Up Table (LUT)",
+      "chinese": "查找表",
+      "definition": "用于实现任意函数组合的存储结构"
+    },
+    {
+      "english": "Linear Feedback Shift Register (LFSR)",
+      "chinese": "线性反馈移位寄存器",
+      "definition": "一种用于生成伪随机序列的电路"
+    },
+    {
+      "english": "Rectified Linear Unit (ReLU)",
+      "chinese": "线性整流单元",
+      "definition": "一种常用的神经网络激活函数，定义为f(x) = max(0, x)"
+    },
+    {
+      "english": "Multiplexer (MUX)",
+      "chinese": "多路选择器",
+      "definition": "根据选择信号从多个输入中选择一个输出的电路"
+    },
+    {
+      "english": "Flip-Flop (FF)",
+      "chinese": "触发器",
+      "definition": "数字电路中的基本存储单元"
+    },
+    {
+      "english": "Artificial Intelligence (AI)",
+      "chinese": "人工智能",
+      "definition": "使计算机模拟人类智能的技术"
+    },
+    {
+      "english": "Tera Operations Per Second (TOPS)",
+      "chinese": "每秒万亿次操作",
+      "definition": "计算性能单位，1 TOPS = 10^12 操作/秒"
+    },
+    {
+      "english": "Giga Operations Per Second (GOPS)",
+      "chinese": "每秒十亿次操作",
+      "definition": "计算性能单位，1 GOPS = 10^9 操作/秒"
+    },
+    {
+      "english": "Fully Connected (FC)",
+      "chinese": "全连接",
+      "definition": "神经网络层类型，其中每个输入连接到每个输出"
+    },
+    {
+      "english": "MNIST",
+      "chinese": "手写数字数据集",
+      "definition": "手写数字识别的标准数据集，包含60,000个训练样本和10,000个测试样本"
+    },
+    {
+      "english": "Operations Per Second (OPS)",
+      "chinese": "每秒操作数",
+      "definition": "衡量计算性能的基本单位"
+    },
+    {
+      "english": "redundant number representation",
+      "chinese": "冗余数表示",
+      "definition": "一个数值可以用多种方式表示的数制系统"
+    },
+    {
+      "english": "positional number system",
+      "chinese": "位置数制",
+      "definition": "数字的值取决于其位置的数表示系统"
+    },
+    {
+      "english": "non-positional number representation",
+      "chinese": "非位置数表示",
+      "definition": "数字的值不依赖于其位置的数表示系统，如随机数"
+    },
+    {
+      "english": "activation function",
+      "chinese": "激活函数",
+      "definition": "神经网络中引入非线性的函数"
+    },
+    {
+      "english": "expectation",
+      "chinese": "期望",
+      "definition": "随机变量的理论平均值"
+    },
+    {
+      "english": "edge computing",
+      "chinese": "边缘计算",
+      "definition": "在数据源附近进行计算的范式，以减少延迟和带宽使用"
+    }
+  ]
+}
