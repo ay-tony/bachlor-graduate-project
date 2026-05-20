@@ -14,23 +14,23 @@
   header: [
     #set align(center)
     #set text(zh(5))
-    北京航空航天大学电子信息工程学院\ 
+    北京航空航天大学电子信息工程学院\
     #v(-.3em)
     #line(length: 100%, stroke: 1pt + black)
   ],
- footer: context [
+  footer: context [
     #set align(center)
     #set text(zh(-5))
     #counter(page).display("1")
   ],
-  margin: (x: 3.18cm, y: 3cm)
+  margin: (x: 3.18cm, y: 3cm),
 )
 
 #show heading.where(level: 1): set text(
   zh(3),
   fill: black,
-  font: ("SimHei"),
-  weight: "regular"
+  font: "SimHei",
+  weight: "regular",
 )
 #show heading.where(level: 1): it => block(
   above: 3em,
@@ -43,8 +43,8 @@
 #show heading.where(level: 2): set text(
   zh(-3),
   fill: black,
-  font: ("SimHei"),
-  weight: "regular"
+  font: "SimHei",
+  weight: "regular",
 )
 #show heading.where(level: 2): it => block(
   above: 2em,
@@ -57,8 +57,8 @@
 #show heading.where(level: 3): set text(
   zh(-4),
   fill: black,
-  font: ("SimHei"),
-  weight: "regular"
+  font: "SimHei",
+  weight: "regular",
 )
 #show heading.where(level: 3): it => block(
   above: 1.5em,
@@ -69,7 +69,9 @@
 ]
 
 #let mythm = thmenv(
-  "mythm", none, none,
+  "mythm",
+  none,
+  none,
   (name, number, body, title: "测试") => block(
     above: 2em,
     below: 2em,
@@ -83,11 +85,13 @@
     ]
     #h(.7em)
     #body
-  ]
+  ],
 ).with(numbering: "1")
 
 #let mypf = thmenv(
-  "mythm", none, none,
+  "mythm",
+  none,
+  none,
   (name, number, body, title: "测试") => block(
     above: 2em,
     below: 2em,
@@ -101,7 +105,7 @@
     ]
     #h(.7em)
     #proof-bodyfmt(body)
-  ]
+  ],
 ).with(numbering: none)
 
 #let de = mythm.with(title: "定义", supplement: "定义")
@@ -110,8 +114,8 @@
 #let pf = mypf.with(title: "证明", supplement: "证明")
 
 #align(center)[
-  #{" "}
-  
+  #{ " " }
+
   #v(3em)
 
   #image("buaa-char.png", width: 50%)
@@ -139,7 +143,7 @@
       stroke: (x, y) => if x == 1 {
         (bottom: .5pt + black)
       },
-      inset: (x, y) => if x == 1 { (x: 3em, y: .5em) } else { .5em }
+      inset: (x, y) => if x == 1 { (x: 3em, y: .5em) } else { .5em },
     )
     #grid(
       columns: 2,
@@ -168,8 +172,8 @@
     #set text(
       zh(3),
       fill: black,
-      font: ("SimHei"),
-      weight: "regular"
+      font: "SimHei",
+      weight: "regular",
     )
 
     目录
@@ -188,8 +192,8 @@
     #set text(
       zh(3),
       fill: black,
-      font: ("SimHei"),
-      weight: "regular"
+      font: "SimHei",
+      weight: "regular",
     )
 
     任务书
@@ -201,7 +205,7 @@
     height: .8em,
     width: .8em,
     radius: .1em,
-    baseline: .08em
+    baseline: .08em,
   )
 
   #let checked-sym = box(
@@ -214,7 +218,7 @@
       box(move(dy: .48em, dx: 0.1em, rotate(45deg, reflow: false, line(length: 0.3em, stroke: black + .1em))))
       box(move(dy: .38em, dx: -0.05em, rotate(-45deg, reflow: false, line(length: 0.48em, stroke: black + .1em))))
     },
-    baseline: .08em
+    baseline: .08em,
   )
 
   #table(
@@ -222,17 +226,20 @@
     inset: 13pt,
     stroke: .5pt,
     [*学生姓名*], [安阳], [*学号*], [22377264], [*专业*], [数学与应用数学],
-    table.cell(colspan: 1)[*校内导师*], table.cell(colspan: 5)[李洪革], 
-    table.cell(colspan: 1)[*校外导师*], table.cell(colspan: 5)[无], 
-    table.cell(colspan: 1)[*毕设地点*], table.cell(colspan: 5)[北京航空航天大学], 
-    table.cell(colspan: 1)[*毕设题目*], table.cell(colspan: 5)[概率计算网络中混合概率数的数学建模与理论分析], 
-    table.cell(colspan: 1)[*论文类型*], table.cell(colspan: 5)[#unchecked-sym 工程设计 #h(1em)#checked-sym 理论研究 #h(1em)#unchecked-sym 实验 #h(1em)#unchecked-sym 其他], 
+    table.cell(colspan: 1)[*校内导师*], table.cell(colspan: 5)[李洪革],
+    table.cell(colspan: 1)[*校外导师*], table.cell(colspan: 5)[无],
+    table.cell(colspan: 1)[*毕设地点*], table.cell(colspan: 5)[北京航空航天大学],
+    table.cell(colspan: 1)[*毕设题目*], table.cell(colspan: 5)[概率计算网络中混合概率数的数学建模与理论分析],
+    table.cell(colspan: 1)[*论文类型*],
+    table.cell(
+      colspan: 5,
+    )[#unchecked-sym 工程设计 #h(1em)#checked-sym 理论研究 #h(1em)#unchecked-sym 实验 #h(1em)#unchecked-sym 其他],
     table.cell(colspan: 6)[
       #set par(first-line-indent: 0em)
       #align(left)[
         *工作内容：*本研究旨在构建一套完整的 HSN 数学理论体系，严格推导噪声、函数运算、算术运算及它们共同作用情况对 HSN 统计特征的影响，最终指导 HSN
-在神经网络实践下的参数设计。拟开展的研究工作可大致分为HSN 的数学定义和基础性质研究、基于 HSN
-的基础算术运算单元建模与分布特征演化分析、非线性激活函数在 HSN 域的数学逼近理论研究、网络级误差累积模型与系统稳定性讨论四部分。\ \ 
+        在神经网络实践下的参数设计。拟开展的研究工作可大致分为HSN 的数学定义和基础性质研究、基于 HSN
+        的基础算术运算单元建模与分布特征演化分析、非线性激活函数在 HSN 域的数学逼近理论研究、网络级误差累积模型与系统稳定性讨论四部分。\ \
 
         *预期目标及设计技术要求：*预期产出在两方面。其一，构建 HSN 数学理论框架，求解噪声、加法、乘法、除法、通过 Bernstein
         多项式逼近的复杂函数映射对 HSN 分布及分布特征的作用及影响，并分析 HSN 网络相对于 BN
@@ -245,7 +252,7 @@
 
         #h(6em)年#h(3em)月#h(3em)日
       ]
-    ], 
+    ],
   )
 ]
 
@@ -309,7 +316,7 @@
 
 在明确了数据表示的基础上，本部分进一步探索 HSN
 域内的代数运算规律及性质。拟针对混合逻辑下的乘法、加法和除法算子进行建模，并推导运算输出结果的期望 $uE[S]$、方差
-$"Var"(S)$、$p$ 阶矩、分布函数 $F_S (x)$ 
+$"Var"(S)$、$p$ 阶矩、分布函数 $F_S (x)$
 等统计学特征。进一步地，本部分还将推导多次代数运算以及噪声等因素对 HSN 分布特征的影响。这一部分通过推导算术运算对 HSN
 的影响，支撑了复杂函数的逼近计算，也为最终网络级的误差分析提供理论依据 @Li2024。
 
@@ -333,70 +340,103 @@ HSN 信号传播的统计学特征。研究的关键点在于证明 HSN
   #set par(leading: .9em, spacing: .9em)
   #table(
     columns: 4,
-    align: (x, y) => if x == 0 { center + horizon } else { left  + horizon },
+    align: (x, y) => if x == 0 { center + horizon } else { left + horizon },
     stroke: .5pt,
     inset: (x: .8em, y: .8em),
     [12 月 15 日前], table.cell(colspan: 2)[完成毕设选题], [已完成],
-    [第 1 周], table.cell(rowspan: 2)[#rotate(-90deg, reflow: true)[预备工作]], [
+    [第 1 周],
+    table.cell(rowspan: 2)[#rotate(-90deg, reflow: true)[预备工作]],
+    [
       阅读文献，理解 HSN 表示方法、运算、神经网络的原理
-    ], [已完成],
+    ],
+    [已完成],
 
-    [第 2 周], [
+    [第 2 周],
+    [
       针对性复习概率论、鞅论相关知识
-    ], [已完成],
+    ],
+    [已完成],
 
     [3 月 6 日前], table.cell(colspan: 2)[完成毕设开题], [已完成],
 
-    [第 3 周], table.cell(rowspan: 2)[#rotate(-90deg, reflow: true)[基础性质]], [
+    [第 3 周],
+    table.cell(rowspan: 2)[#rotate(-90deg, reflow: true)[基础性质]],
+    [
       构建 HSN 的数学模型，完成 HSN 分布的数学表达式推导
-    ], [已完成],
+    ],
+    [已完成],
 
-    [第 4 周], [
+    [第 4 周],
+    [
       估计噪声强度对分布及分布特征的影响；编写对应仿真程序验证
-    ], [进行中],
+    ],
+    [进行中],
 
-    [第 5 周], table.cell(rowspan: 3)[#rotate(-90deg, reflow: true)[算术运算分析]], [
+    [第 5 周],
+    table.cell(rowspan: 3)[#rotate(-90deg, reflow: true)[算术运算分析]],
+    [
       推导加法、乘法等算术算子对 HSN 分布及特征的影响，研究输入相关性对乘法的影响
-    ], [已完成],
+    ],
+    [已完成],
 
-    [第 6 周], [
+    [第 6 周],
+    [
       比较 HSN 的加法和传统 SC 的 MUX 加法对分布及特征的影响，研究噪声在加法、乘法、除法中的扩散过程
-    ], [已完成],
+    ],
+    [已完成],
 
-    [第 7 周], [
+    [第 7 周],
+    [
       编写算术运算仿真程序，并验证理论的准确性
-    ], [进行中],
+    ],
+    [进行中],
 
     [4 月 17 日前], table.cell(colspan: 2)[完成中期检查], [进行中],
 
-    [第 8 周], table.cell(rowspan: 3)[#rotate(-90deg, reflow: true)[一般函数对 HSN 的作用]], [
+    [第 8 周],
+    table.cell(rowspan: 3)[#rotate(-90deg, reflow: true)[一般函数对 HSN 的作用]],
+    [
       研究 HSN 域内的复杂函数映射，证明用 Bernstein 多项式逼近复杂函数的有效性
-    ], [未完成],
+    ],
+    [未完成],
 
-    [第 9 周], [
+    [第 9 周],
+    [
       估计逼近的误差大小，研究复杂函数对 HSN 分布及特征的影响
-    ], [未完成],
+    ],
+    [未完成],
 
-    [第 10 周], [
+    [第 10 周],
+    [
       估计复杂函数对 HSN 中噪声的影响，编写对应仿真程序验证
-    ], [未完成],
+    ],
+    [未完成],
 
-    [第 11 周], table.cell(rowspan: 4)[#rotate(-90deg, reflow: true)[神经网络中 HSN 的传播]], [
+    [第 11 周],
+    table.cell(rowspan: 4)[#rotate(-90deg, reflow: true)[神经网络中 HSN 的传播]],
+    [
       研究 HSN 在复杂神经网络中的行为，分析神经网络传播中 HSN
       信号的分布及分布特征量变化，
-    ], [未完成],
+    ],
+    [未完成],
 
-    [第 12 周], [
+    [第 12 周],
+    [
       利用不等式进行估计，分析 HSN 网络和 BN 网络的数字表示误差
-    ], [未完成],
+    ],
+    [未完成],
 
-    [第 13 周], [
+    [第 13 周],
+    [
       估计噪声在网络传播过程中的扩散，编写基于 HSN 的神经网络前向传播仿真程序
-    ], [未完成],
+    ],
+    [未完成],
 
-    [第 14 周], [
+    [第 14 周],
+    [
       利用仿真程序验证理论的正确性，并用理论解释文献中的实验结果
-    ], [未完成],
+    ],
+    [未完成],
 
     [第 15 周], table.cell(colspan: 2)[总结理论成果和仿真代码，完成毕业论文的全文撰写], [未完成],
 
@@ -418,15 +458,9 @@ HSN 信号传播的统计学特征。研究的关键点在于证明 HSN
 
 HSN 的核心设计思想在于利用低位宽随机变量序列的统计特性，实现对大动态范围数值的高效表征。为表达简洁，下文中“$x$ 为 $n$ 位数”指 $x in {0, 1, ..., 2^n - 1}$。
 
-为了表征一个 $n$ 位整数 $x$，初步的构思是构造一个长度为 $L$ 的独立同分布（i.i.d.）随机变量序列 ${X'_i}_(i=1)^L$，其中每个采样值 $X'_i$ 均为 $n+1$ 位整数。若该序列满足无偏性条件 $uE[X'_i] = x$，则可定义其样本均值作为 $x$ 的估计量：\ #box[$
-  overline(X)' = 1 / L sum_(i=1)^L X'_i  approx x. 
-$]
+为了表征一个 $n$ 位整数 $x$，初步的构思是构造一个长度为 $L$ 的独立同分布（i.i.d.）随机变量序列 ${X'_i}_(i=1)^L$，其中每个采样值 $X'_i$ 均为 $n+1$ 位整数。若该序列满足无偏性条件 $uE[X'_i] = x$，则可定义其样本均值作为 $x$ 的估计量：\ #box[$ overline(X)' = 1 / L sum_(i=1)^L X'_i approx x. $]
 
-然而，直接处理高位宽随机序列在硬件实现上并不经济。为了优化表示效率，HSN 采用空间截断与权重补偿策略：令 $X'_i$ 的低位恒为零，仅保留高 $m$ 位有效信息（$1 <= m <= n$）。此时，高位宽变量 $X'_i$ 与低位宽变量 $X_i$ 之间存在如下映射关系：\ #box[$
-  X'_i = 2^k X_i, quad "其中" k = n - m + 1,
-$] 这里 $X_i$ 为 $m$ 位二进制数。相应地，估计式修正为：\ #box[$
-  2^k overline(X) = 2^k / L sum_(i=1)^L X_i approx x.
-$]
+然而，直接处理高位宽随机序列在硬件实现上并不经济。为了优化表示效率，HSN 采用空间截断与权重补偿策略：令 $X'_i$ 的低位恒为零，仅保留高 $m$ 位有效信息（$1 <= m <= n$）。此时，高位宽变量 $X'_i$ 与低位宽变量 $X_i$ 之间存在如下映射关系：\ #box[$ X'_i = 2^k X_i, quad "其中" k = n - m + 1, $] 这里 $X_i$ 为 $m$ 位二进制数。相应地，估计式修正为：\ #box[$ 2^k overline(X) = 2^k / L sum_(i=1)^L X_i approx x. $]
 
 综合上述逻辑，给出 HSN 的形式化定义如下：
 
@@ -447,25 +481,19 @@ $]
 在定义 HSN 之后，探究其能够表征的数字集合（即表征空间）及其分辨率是衡量编码性能的关键。
 
 #prop([表征空间])[
-  对于 HSN $vX = (m, k, {X_i}_(i=1)^L)$，其表征值为 $X$ a.s. 取值于如下离散集合：\ #box[$
-    sS &= {z dot alpha | z in ZZ, 0 <= z <= L(2^(m)-1)}\
-    &= {0, alpha, 2alpha, 3alpha, ..., 2^(m+k) - 2^k},
-  $] 其中 $alpha = 2^k \/ L$。
+  对于 HSN $vX = (m, k, {X_i}_(i=1)^L)$，其表征值为 $X$ a.s. 取值于如下离散集合：\ #box[$ sS & = {z dot alpha | z in ZZ, 0 <= z <= L(2^(m)-1)} \
+     & = {0, alpha, 2alpha, 3alpha, ..., 2^(m+k) - 2^k}, $] 其中 $alpha = 2^k \/ L$。
 ]<prop:bzkj>
 
 #pf[
-  根据@de:bzz 有 \ #box[$
-    X = 2^k / L dot sum_(i=1)^L X_i = alpha sum_(i=1)^L X_i.
-  $] 由于每个随机变量 $X_i$ 几乎处处取值于二进制整数（即 $X_i in {0, 1, ..., 2^m-1}$），则其序列和 $Z = sum_(i=1)^L X_i$ 取值范围为整数集 ${0, 1, ..., L(2^m - 1)}$。相应地，$X = alpha dot Z$ 取值集合为 ${0, alpha, 2alpha, ..., alpha L(2^m - 1)}$。将上界展开即可得到 \ #box[$
-    alpha L (2^m - 1) &= 2^k / L dot L(2^m - 1) = 2^(m+k) - 2^k.
-  $] 
+  根据@de:bzz 有 \ #box[$ X = 2^k / L dot sum_(i=1)^L X_i = alpha sum_(i=1)^L X_i. $] 由于每个随机变量 $X_i$ 几乎处处取值于二进制整数（即 $X_i in {0, 1, ..., 2^m-1}$），则其序列和 $Z = sum_(i=1)^L X_i$ 取值范围为整数集 ${0, 1, ..., L(2^m - 1)}$。相应地，$X = alpha dot Z$ 取值集合为 ${0, alpha, 2alpha, ..., alpha L(2^m - 1)}$。将上界展开即可得到 \ #box[$ alpha L (2^m - 1) & = 2^k / L dot L(2^m - 1) = 2^(m+k) - 2^k. $]
 ]
 
 #de([表征空间])[
   @prop:bzkj 中的 $sS$ 称为 $vX$ 的表征空间。
 ]
-者是
-从@prop:bzkj 可知，给定参数 HSN $vX = (n, m, {X_i}_(i=1)^L)$，其所有可能表征值在区间 $[0, 2^n)$ 内构成一个离散的等差数列，该集合 $sS$ 称为 $vX$ 的表征空间。$sS$ 的最大值反映了 HSN 能够表征的最大数，定义为表征上界；数列的公差反映了 HSN 能够分辨的最小数值差异，定义为编码精度。
+
+从@prop:bzkj 可知，给定参数 HSN $vX = (n, m, {X_i}_(i=1)^L)$，其所有可能表征值在区间 $[0, 2^(m+k)-2^k]$ 内构成一个离散的等差数列，该集合 $sS$ 称为 $vX$ 的表征空间。$sS$ 的最大值反映了 HSN 能够表征的最大数，定义为表征上界；数列的公差反映了 HSN 能够分辨的最小数值差异，定义为编码精度。
 
 #de([表征上界、编码精度])[
   设 $vX = (m, k, {X_i}_(i=1)^L)$ 是 HSN，$sS$ 是 $vX$ 的表征空间。
@@ -478,23 +506,15 @@ $]
 
 === BTH 转换函数
 
-二进制数至混合概率数（BN-to-HSN, BTH）的转换过程，实质上是将确定性的位置编码映射为包含统计特性的随机表征。该映射通过引入一组辅助随机序列 ${R_i}_(i=1)^L$（在硬件实现中通常由随机数发生器 RNG 产生）作为中介，将 $n$ 位二进制数 $x$ 编码为对应的 HSN $vX$。记 $n$ 位二进制数 $x$ 的比特展开式为：\ #box[$
-  x = sum_(j=0)^(n-1) 2^j x^((j)), quad x^((j)) in {0, 1},
-$] 其中 $x^((j))$ 代表其第 $j$ 位二进制分量。基于此表示，BTH 转换函数定义如下：
+二进制数至混合概率数（BN-to-HSN, BTH）的转换过程，实质上是将确定性的位置编码映射为包含统计特性的随机表征。该映射通过引入一组辅助随机序列 ${R_i}_(i=1)^L$（在硬件实现中通常由随机数发生器 RNG 产生）作为中介，将 $n$ 位二进制数 $x$ 编码为对应的 HSN $vX$。记 $n$ 位二进制数 $x$ 的比特展开式为：\ #box[$ x = sum_(j=0)^(n-1) 2^j x^((j)), quad x^((j)) in {0, 1}, $] 其中 $x^((j))$ 代表其第 $j$ 位二进制分量。基于此表示，BTH 转换函数定义如下：
 
 #let BTH = math.class("unary", "BTH")
 
 #de("BTH 转换函数")[
-  设转换函数 $BTH$ 为从二进制空间向 HSN 空间的映射。给定物理位宽 $m$、比例因子 $k$ 以及长度为 $L$ 的辅助随机序列 ${R_i}_(i=1)^L$，转换过程记为：\ #box[$
-    vX = BTH(m, k, {R_i}_(i=1)^L, x).
-  $] 其中，${R_i}_(i=1)^L$ 为 i.i.d. 辅助随机变量，且每个 $R_i$ 在集合 ${0, 1, ..., 2^(n-m+1)-1}$ 上服从均匀分布。待转换的 $n$ 位 BN $x$ 需满足量程约束 $x <= 2^(m+k) - 2^k$。转换逻辑如下：
+  设转换函数 $BTH$ 为从二进制空间向 HSN 空间的映射。给定物理位宽 $m$、比例因子 $k$ 以及长度为 $L$ 的辅助随机序列 ${R_i}_(i=1)^L$，转换过程记为：\ #box[$ vX = BTH(m, k, {R_i}_(i=1)^L, x). $] 其中，${R_i}_(i=1)^L$ 为 i.i.d. 辅助随机变量，且每个 $R_i$ 在集合 ${0, 1, ..., 2^(n-m+1)-1}$ 上服从均匀分布。待转换的 $n$ 位 BN $x$ 需满足量程约束 $x <= 2^(m+k) - 2^k$。转换逻辑如下：
 
-  1. 数值分解：将 $x$ 分解为 $m$ 个权重分量的线性组合：\ #box[$
-      x = sum_(j=0)^(m-1) 2^j x_j.
-    $] 其中，$x_j$ 是与权重 $2^j$ 相对应的系数值，且满足 $0 <= x_j < 2^k$；
-  2. 随机化生成：对于 HSN 脉冲串中的每个分量 $X_i$（$i=1, ..., L$），其第 $j$ 个比特位 $X_i^((j))$ 根据随机比较结果确定：\ #box[$
-      X_i^((j)) = cases(1\, quad R_i < x_j, 0\, quad R_i >= x_j), quad forall j in {0, 1, ...,  m-1}.
-    $]
+  1. 数值分解：将 $x$ 分解为 $m$ 个权重分量的线性组合：\ #box[$ x = sum_(j=0)^(m-1) 2^j x_j. $] 其中，$x_j$ 是与权重 $2^j$ 相对应的系数值，且满足 $0 <= x_j < 2^k$；
+  2. 随机化生成：对于 HSN 脉冲串中的每个分量 $X_i$（$i=1, ..., L$），其第 $j$ 个比特位 $X_i^((j))$ 根据随机比较结果确定：\ #box[$ X_i^((j)) = cases(1\, quad R_i < x_j, 0\, quad R_i >= x_j) = 1_({R_i < X_j}), quad forall j in {0, 1, ..., m-1}. $]
 ]<de:bth>
 
 在给出 BTH 的形式化定义后，首要任务是验证该转换映射在数学逻辑上的自洽性，即通过该算法构造的序列是否确实符合 HSN 的统计约束。
@@ -520,15 +540,13 @@ $] 其中 $x^((j))$ 代表其第 $j$ 位二进制分量。基于此表示，BTH 
 ]
 
 #pf[
-  根据表征值定义与期望算子的线性性质，推导如下：$
-    uE[X] &= uE[ 2^k/L sum_(i=1)^L X_i ]
-    = 2^k/L sum_(i=1)^L uE[sum_(j=0)^(m-1) 2^j X_i^((j)) ] 
-    = 2^k sum_(j=0)^(m-1) 2^j E[ X_i^((j)) ] \
-    &= 2^k sum_(j=0)^(m-1) 2^j dot P(R_i < x_j) 
-    = 2^k sum_(j=0)^(m-1) 2^j dot (x_j)/(2^k) 
-    = sum_(j=0)^(m-1) x_j 2^j 
-    = x.
-  $
+  根据表征值定义与期望算子的线性性质，推导如下：$ uE[X] & = uE[ 2^k/L sum_(i=1)^L X_i ]
+          = 2^k/L sum_(i=1)^L uE[sum_(j=0)^(m-1) 2^j X_i^((j)) ]
+          = 2^k sum_(j=0)^(m-1) 2^j E[ X_i^((j)) ] \
+        & = 2^k sum_(j=0)^(m-1) 2^j dot P(R_i < x_j)
+          = 2^k sum_(j=0)^(m-1) 2^j dot (x_j)/(2^k)
+          = sum_(j=0)^(m-1) x_j 2^j
+          = x. $
 ]
 
 #let Var = math.class("unary", "Var")
@@ -538,32 +556,18 @@ $] 其中 $x^((j))$ 代表其第 $j$ 位二进制分量。基于此表示，BTH 
 在确定了 BTH 转换的无偏性后，下面进一步研究其统计波动特性。方差的大小直接决定了 HSN 在硬件计算中的信噪比与收敛速度。
 
 #prop([方差分解公式])[
-  对于转换 $vX = BTH(m, k, {R_i}_(i=1)^j, x)$，设 BTH 内对 $x$ 的拆分方法为 \ #box[$
-    x = sum_(j=0)^(m-1) 2^j x_j,
-  $] 那么 $vX$ 的表征值 $X$ 的方差满足公式 \ #box[$
-    Var X = 1 / L sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1) 2^(j_1 + j_2) min{x_j_1, x_j_2}(2^k - max{x_j_1, x_j_2}).
-  $] 
+  对于转换 $vX = BTH(m, k, {R_i}_(i=1)^j, x)$，设 BTH 内对 $x$ 的拆分方法为 \ #box[$ x = sum_(j=0)^(m-1) 2^j x_j, $] 那么 $vX$ 的表征值 $X$ 的方差满足公式 \ #box[$ Var X = 1 / L sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1) 2^(j_1 + j_2) min{x_j_1, x_j_2}(2^k - max{x_j_1, x_j_2}). $]
 ]<prop:Var1>
 
 #pf[
-  记 ${X_i}_(i=1)^j$ 为 $vX$ 的随机脉冲串，则 $X_i^((j))$ 可以形式化记为 $X_i^((j)) = 1_({R_i < x_j})$，从而 \ #box[$
-    X_i &= sum_(j=0)^(m-1) 2^j 1_({R_i < x_j}),\
-    X_i^2 &= sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1) 2^(j_1) 2^(j_2) 1_({R_i < x_j_1}) 1_({R_i < x_j_2})\
-    &= sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1) 2^(j_1+j_2) 1_({R_i < min{x_j_1, x_j_2}}),
-  $] 其中 $1_A$ 表示示性函数，其定义为 \ #box[$
-    1_A (x) = cases(1\, quad x in A, 0\, quad x in.not A.)
-  $] 有了 $X_i, X_i^2$ 的形式化表达，便可以进一步求出它们的期望 $uE[X_i], uE[X_i^2]$，进一步求出 $Var X_i$。利用辅助随机变量 $R_i$ 的离散均匀分布性质（其测度为 $2^(-k)$），可得 \ #box[$
-    uE[1_({R_i < x_j})] = uP(R_i < x_j) = 2^(-k) x_j.
-  $] 将上述结论代入 $X_i, X_i^2$ 表达式可得 \ #box[$
-  uE[X_i] &= sum_(j=0)^(m-1)2^(j-k) x_j,\
-  (uE[X_i])^2 &= (sum_(j=0)^(m-1)2^(j-k) x_j)^2 = sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1)2^(j_1 + j_2 - 2k) x_j_1 x_j_2,\
-  uE[X_i^2] &= sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1) 2^(j_1 + j_2 - k) min{x_j_1, x_j_2},\
-    Var X_i &= uE [X_i^2] - (uE[X_i])^2\
-    &= sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1) 2^(j_1 + j_2 - 2k) min{x_j_1, x_j_2}(2^k - max{x_j_1, x_j_2}).
-  $] 再代入 $X = (2^k \/ L) sum_(i=1)^L X_i$，且考虑到 $X_i$ 是 i.i.d. 即有 \ #box[$
-    Var X &= 2^(2k) / L^2 sum_(i=1)^L Var X_i = 2^(2k) / L Var X_1\
-    &= 1 / L sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1) 2^(j_1 + j_2) min{x_j_1, x_j_2}(2^k - max{x_j_1, x_j_2})
-  $] 
+  记 ${X_i}_(i=1)^j$ 为 $vX$ 的随机脉冲串，则 $X_i^((j))$ 可以形式化记为 $X_i^((j)) = 1_({R_i < x_j})$，从而 \ #box[$   X_i & = sum_(j=0)^(m-1) 2^j 1_({R_i < x_j}), \
+  X_i^2 & = sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1) 2^(j_1) 2^(j_2) 1_({R_i < x_j_1}) 1_({R_i < x_j_2}) \
+        & = sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1) 2^(j_1+j_2) 1_({R_i < min{x_j_1, x_j_2}}), $] 其中 $1_A$ 表示示性函数，其定义为 \ #box[$ 1_A (x) = cases(1\, quad x in A, 0\, quad x in.not A.) $] 有了 $X_i, X_i^2$ 的形式化表达，便可以进一步求出它们的期望 $uE[X_i], uE[X_i^2]$，进一步求出 $Var X_i$。利用辅助随机变量 $R_i$ 的离散均匀分布性质（其测度为 $2^(-k)$），可得 \ #box[$ uE[1_({R_i < x_j})] = uP(R_i < x_j) = 2^(-k) x_j. $] 将上述结论代入 $X_i, X_i^2$ 表达式可得 \ #box[$     uE[X_i] & = sum_(j=0)^(m-1)2^(j-k) x_j, \
+  (uE[X_i])^2 & = (sum_(j=0)^(m-1)2^(j-k) x_j)^2 = sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1)2^(j_1 + j_2 - 2k) x_j_1 x_j_2, \
+    uE[X_i^2] & = sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1) 2^(j_1 + j_2 - k) min{x_j_1, x_j_2}, \
+      Var X_i & = uE [X_i^2] - (uE[X_i])^2 \
+              & = sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1) 2^(j_1 + j_2 - 2k) min{x_j_1, x_j_2}(2^k - max{x_j_1, x_j_2}). $] 再代入 $X = (2^k \/ L) sum_(i=1)^L X_i$，且考虑到 $X_i$ 是 i.i.d. 即有 \ #box[$ Var X & = 2^(2k) / L^2 sum_(i=1)^L Var X_i = 2^(2k) / L Var X_1 \
+        & = 1 / L sum_(j_1=0)^(m-1)sum_(j_2=0)^(m-1) 2^(j_1 + j_2) min{x_j_1, x_j_2}(2^k - max{x_j_1, x_j_2}) $]
 ]
 
 @prop:Var1 揭示了 HSN 表征精度的内在机理。从数学结构上看，方差由双重加权和构成，其核心项 $min{x_j_1, x_j_2}(2^k - max{x_j_1, x_j_2})$ 具有典型的二项分布方差特征，反映了各比特位在随机映射过程中的统计波动及其相互耦合。值得注意的是，方差的大小不仅受目标数值 $x$ 的量值影响，还显著取决于数值分解策略 ${x_j}$。
@@ -571,36 +575,22 @@ $] 其中 $x^((j))$ 代表其第 $j$ 位二进制分量。基于此表示，BTH 
 为了评估 HSN 表征的最劣精度表现，并消除特定目标值 $x$ 及其分解策略 ${x_j}$ 对误差评估的影响，下面讨论方差 $Var X$ 的上确界。
 
 #prop([方差上确界])[
-  记 $M = 2^(m+k) - 2^k$ 为 $vX$ 的表征上界，则对于@prop:Var1 中所有可能的 $x in [0, M] inter ZZ$ 及其对应分解策略 ${x_j}$，方差的上确界为\ #box[$
-    sup_(x, {x_j}) {Var X} = 2^(2k - 2) / L (2^m-1)^2,
-  $] 该上确界给出了 BTH 转化在最坏情况下的统计波动边界。
+  记 $M = 2^(m+k) - 2^k$ 为 $vX$ 的表征上界，则对于@prop:Var1 中所有可能的 $x in [0, M] inter ZZ$ 及其对应分解策略 ${x_j}$，方差的上确界为\ #box[$ sup_(x, {x_j}) {Var X} = 2^(2k - 2) / L (2^m-1)^2, $] 该上确界给出了 BTH 转化在最坏情况下的统计波动边界。
 ]<prop:supVar>
 
 #pf[
-  根据@prop:Var1 的方差公式，并设 $p_j = x_j \/ 2^k$，其中 $p_j in [0, 1]$，将原式改写为概率映射形式：\ #box[$
-  Var X = 2^(2k) / L sum_(j_1=0)^(m-1) sum_(j_2=0)^(m-1) 2^(j_1 + j_2) dot p_(min{j_1, j_2}) (1 - p_(max{j_1, j_2})).
-  $] 为了求解该多维函数的最大值，考虑对称性。当所有权重分量的激活概率相等，即 $p_0 = p_1 = ... = p_(m-1) = p$ 时，方差取得极大值：\ #box[$
-  Var X &= 2^(2k) / L (sum_(j=0)^(m-1) 2^j)^2 dot p(1 - p) \
-  &= 2^(2k) / L (2^m - 1)^2 dot p(1 - p). 
-  $] 由于二次函数 $f(p) = p(1 - p)$ 在 $[0, 1]$ 上的最大值为 $f(1\/2) = 1\/4$，代入上式得：\ #box[$
-  sup Var X = 2^(2k) / L (2^m - 1)^2 dot 1 / 4 = 2^(2k - 2) / L (2^m - 1)^2.
-  $] 此时对应的物理含义为：当所有比特位的激活概率均为 $0.5$（即 $x_j = 2^(k-1)$）时，HSN 的统计波动达到峰值。
+  根据@prop:Var1 的方差公式，并设 $p_j = x_j \/ 2^k$，其中 $p_j in [0, 1]$，将原式改写为概率映射形式：\ #box[$ Var X = 2^(2k) / L sum_(j_1=0)^(m-1) sum_(j_2=0)^(m-1) 2^(j_1 + j_2) dot p_(min{j_1, j_2}) (1 - p_(max{j_1, j_2})). $] 为了求解该多维函数的最大值，考虑对称性。当所有权重分量的激活概率相等，即 $p_0 = p_1 = ... = p_(m-1) = p$ 时，方差取得极大值：\ #box[$ Var X & = 2^(2k) / L (sum_(j=0)^(m-1) 2^j)^2 dot p(1 - p) \
+        & = 2^(2k) / L (2^m - 1)^2 dot p(1 - p). $] 由于二次函数 $f(p) = p(1 - p)$ 在 $[0, 1]$ 上的最大值为 $f(1\/2) = 1\/4$，代入上式得：\ #box[$ sup Var X = 2^(2k) / L (2^m - 1)^2 dot 1 / 4 = 2^(2k - 2) / L (2^m - 1)^2. $] 此时对应的物理含义为：当所有比特位的激活概率均为 $0.5$（即 $x_j = 2^(k-1)$）时，HSN 的统计波动达到峰值。
 ]
 
-在实际工程应用中，为了更直观地评估 HSN 的误差包络，可以将@prop:supVar 中精确上确界进一步简化。由于在 $m >> 1$ 的高位宽情形下，$(2^m - 1)^2 approx 2^(2m)$，因此方差的上确界可以近似表示为：\ #box[$
-  sup Var X approx 2^(2k + 2m - 2)/L.
-$] 这一近似公式揭示了 HSN 统计波动的基本量级特征：方差随总有效位宽 $m+k$ 呈指数级增长，并随脉冲长度 $L$ 线性衰减。该结论为系统架构师在确定硬件参数时提供了便捷的理论准则——若要抵消位宽增加带来的噪声增长，必须按比例增加采样深度 $L$，以维持特定的计算信噪比。
+在实际工程应用中，为了更直观地评估 HSN 的误差包络，可以将@prop:supVar 中精确上确界进一步简化。由于在 $m >> 1$ 的高位宽情形下，$(2^m - 1)^2 approx 2^(2m)$，因此方差的上确界可以近似表示为：\ #box[$ sup Var X approx 2^(2k + 2m - 2)/L. $] 这一近似公式揭示了 HSN 统计波动的基本量级特征：方差随总有效位宽 $m+k$ 呈指数级增长，并随脉冲长度 $L$ 线性衰减。该结论为系统架构师在确定硬件参数时提供了便捷的理论准则——若要抵消位宽增加带来的噪声增长，必须按比例增加采样深度 $L$，以维持特定的计算信噪比。
 
 === 随机脉冲串的分布
 
 在 BTH 转换逻辑中，同一个辅助随机变量 $R_i$ 被同时用于 $m$ 个分量的比较。这种共用随机源的机制使得 HSN 脉冲串的采样值 $X_i$ 具有极强的结构性。
 
 #prop([采样值分布])[
-  设 $n$ 位 BN $x$ 在 BTH 转换函数内部分解为 $m$ 个分量 ${x_0, x_1, ..., x_(m-1)}$。若将这些分量按非递减顺序重排为 \ #box[$
-  0 <= x_(pi(0)) <= x_(pi(1)) <= ... <= x_(pi(m-1)) < 2^k,
-  $] 则随机采样点 $X_i$ 的取值集合 $sV$ 满足 $|sV| <= m+1$。其元素 $v_r$ 具有如下形式：\ #box[$
-  v_r = sum_(j=0)^(m-1) 2^j dot 1_({x_j > x_(pi(r-1))}), quad r in {0, 1, ..., m}.
-  $]（约定 $x_(pi(-1)) = -1$）
+  设 $n$ 位 BN $x$ 在 BTH 转换函数内部分解为 $m$ 个分量 ${x_0, x_1, ..., x_(m-1)}$。若将这些分量按非递减顺序重排为 \ #box[$ 0 <= x_(pi(0)) <= x_(pi(1)) <= ... <= x_(pi(m-1)) < 2^k, $] 则随机采样点 $X_i$ 的取值集合 $sV$ 满足 $|sV| <= m+1$。其元素 $v_r$ 具有如下形式：\ #box[$ v_r = sum_(j=0)^(m-1) 2^j dot 1_({x_j > x_(pi(r-1))}), quad r in {0, 1, ..., m}. $]（约定 $x_(pi(-1)) = -1$）
 ]<prop:discrete>
 
 #pf[
@@ -619,13 +609,9 @@ $] 这一近似公式揭示了 HSN 统计波动的基本量级特征：方差随
 这一命题表明，尽管 HSN 的定义允许 $X_i$ 理论上取遍 $2^m$ 个二进制数，但 BTH 算法通过单随机源映射，将搜索空间压缩到了线性的 $m+1$ 阶量级。这种高度的离散性是 HSN 能够保持高能效比的重要数理基础。下面举一个例子具体说明 BTH 采样值分布。
 
 #ex[
-  本例源于文献@Li2024。假设要将 $6$ 位 BN $x = 61$ 编码为物理位宽 $m=3$，比例因子 $k=4$ 的 HSN $vX$。辅助变量 $R_i$ 服从 ${0, 1, ..., 2^4-1=15}$ 上的均匀分布。如果指定 BTH 内部分解为 $x_0 = 5, x_1 = 12, x_2 = 8$，此时 \ #box[$
-    x = sum_(j=0)^2 2^j x_j = 2^0 dot 5 + 2^1 dot 12 + 2^2 dot 8 = 61
-  $] 说明这是合法的分解。
+  本例源于文献@Li2024。假设要将 $6$ 位 BN $x = 61$ 编码为物理位宽 $m=3$，比例因子 $k=4$ 的 HSN $vX$。辅助变量 $R_i$ 服从 ${0, 1, ..., 2^4-1=15}$ 上的均匀分布。如果指定 BTH 内部分解为 $x_0 = 5, x_1 = 12, x_2 = 8$，此时 \ #box[$ x = sum_(j=0)^2 2^j x_j = 2^0 dot 5 + 2^1 dot 12 + 2^2 dot 8 = 61 $] 说明这是合法的分解。
 
-  为了得到 $R_i$ 和 $X_i$ 的取值对应表，将分量 ${x_j}$ 按升序排列：\ #box[$
-    x_pi(0) = x_0 = 5, x_pi(1) = x_2 = 8, x_pi(3) = x_1 = 12,
-  $] 这三个阈值将 $R_i$ 的取值空间 $[0, 15] inter ZZ$ 划分为 $m + 1 = 4$ 个互斥区间。
+  为了得到 $R_i$ 和 $X_i$ 的取值对应表，将分量 ${x_j}$ 按升序排列：\ #box[$ x_pi(0) = x_0 = 5, x_pi(1) = x_2 = 8, x_pi(3) = x_1 = 12, $] 这三个阈值将 $R_i$ 的取值空间 $[0, 15] inter ZZ$ 划分为 $m + 1 = 4$ 个互斥区间。
 
   #figure(
     table(
@@ -644,7 +630,7 @@ $] 这一近似公式揭示了 HSN 统计波动的基本量级特征：方差随
       [$8 <= R_i < 12$], [$0$], [$1$], [$0$], [$2$],
       [$12 <= R_i < 16$], [$0$], [$0$], [$0$], [$0$],
     ),
-    caption: [$R_i$ 与 $X_i$ 取值对应表]
+    caption: [$R_i$ 与 $X_i$ 取值对应表],
   )<tab:bthex>
 
   如@tab:bthex 所示，尽管 $X_i$ 作为 3 位二进制数理论上可以取 $2^3=8$ 个值，但在 BTH 映射下，它实际上仅在 ${7, 6, 2, 0}$ 这 $m+1=4$ 个元素中取值。
@@ -659,15 +645,7 @@ $] 这一近似公式揭示了 HSN 统计波动的基本量级特征：方差随
 
 #pf[
   根据@prop:discrete，$X_1$ 是一个离散随机变量，其取值为 $v_r$ 的概率为 $p_r = uP(R_i in I_r) = Delta_r \/ 2^k$。
-  由随机变量方差的通用恒等式\ #box[$
-  Var X_1 = 1 / 2 sum_(r=0)^m sum_(s=0)^m p_r p_s (v_r - v_s)^2
-  $] 代入概率分布 $p_r, p_s$ 可得\ #box[$
-  Var X_1 = 1 / (2 dot 2^(2k)) sum_(r=0)^m sum_(s=0)^m Delta_r Delta_s (v_r - v_s)^2 = 1 / 2^(2k) sum_(0 <= r < s <= m) Delta_r Delta_s (v_r - v_s)^2
-  $] 由于 $X = 2^k \/ L sum_(i=1)^L X_i$ 且 $X_i$ 为 i.i.d.，则\ #box[$
-  Var X = 2^(2k) / L^2 sum_(i=1)^L Var X_1 = 2^(2k) / L Var X_1
-  $] 将 $Var X_1$ 代入即得\ #box[$
-  Var X = 1 / L sum_(0 <= r < s <= m) Delta_r Delta_s (v_r - v_s)^2 / 2^k.
-  $]
+  由随机变量方差的通用恒等式\ #box[$ Var X_1 = 1 / 2 sum_(r=0)^m sum_(s=0)^m p_r p_s (v_r - v_s)^2 $] 代入概率分布 $p_r, p_s$ 可得\ #box[$ Var X_1 = 1 / (2 dot 2^(2k)) sum_(r=0)^m sum_(s=0)^m Delta_r Delta_s (v_r - v_s)^2 = 1 / 2^(2k) sum_(0 <= r < s <= m) Delta_r Delta_s (v_r - v_s)^2 $] 由于 $X = 2^k \/ L sum_(i=1)^L X_i$ 且 $X_i$ 为 i.i.d.，则\ #box[$ Var X = 2^(2k) / L^2 sum_(i=1)^L Var X_1 = 2^(2k) / L Var X_1 $] 将 $Var X_1$ 代入即得\ #box[$ Var X = 1 / L sum_(0 <= r < s <= m) Delta_r Delta_s (v_r - v_s)^2 / 2^k. $]
 ]
 
 #prop([方差公式等价性])[
@@ -675,11 +653,11 @@ $] 这一近似公式揭示了 HSN 统计波动的基本量级特征：方差随
 ]
 
 #pf[
-  本质上，两个公式分别从变量的**二阶矩分解**与**样本空间距离**两个维度描述同一个随机变量 $X_1$。
-  
+  本质上，两个公式分别从变量的*二阶矩分解*与*样本空间距离*两个维度描述同一个随机变量 $X_1$。
+
   1. @prop:Var1 采用的是线性分解法。由于 $X_1 = sum 2^j 1_(R_i < x_j)$，其方差必然等于各分量协方差的加权和 $ Var X_1 = sum_(j_1) sum_(j_2) 2^(j_1 + j_2) "Cov"(1_({R_i < x_(j_1)}), 1_({R_i < x_(j_2)})). $
   2. @prop:Var2 采用的是定义法。对于任何离散随机变量 $Y$，其方差定义 $E[Y^2] - (E[Y])^2$ 恒等于所有可能取值点对距离的加权平均。
-  
+
   通过展开@prop:Var2 中的平方项 $(v_r - v_s)^2$，并利用关系 $sum Delta_r = 2^k$ 以及示性函数的重叠性质，可以严谨地化简为@prop:Var1 中的 $min$ 与 $max$ 形式。两公式描述的是同一物理对象的不同数学切面，故本质相同。
 ]
 
@@ -690,21 +668,11 @@ BTH 转换的这一特性表明，HSN 的统计波动不仅源于概率采样本
 随着脉冲长度 $L$（采样深度）的增加，研究表征值 $X$ 的随机波动如何趋于确定性数值 $x$ 是评估计算精度的关键。为了分析 HSN 在长脉冲序列下的统计行为，考察 $L -> oo$ 时表征值 $X$ 的极限分布。
 
 #prop([渐进正态])[
-  设 $vX = (m, k, {X_i}_(i=1)^L)$ 为 BTH 转换生成的 HSN。当脉冲长度 $L -> oo$ 时，表征值 $X$ 满足：\ #box[$
-  sqrt(L)(X - x) -->^d sN(0, 2^(2k) Var X_1),
-  $] 其中 $-->^d$ 表示依分布收敛（弱收敛），$sN(mu, sigma^2)$ 代表均值为 $mu$，方差为 $sigma^2$ 的正态分布。上式也可以记为 \ #box[$
-    X tilde^a sN(x, 2^(2k) / L Var X_1) = sN(x, Var X),
-  $] 其中 $tilde^a$ 表示“渐近服从于”。
+  设 $vX = (m, k, {X_i}_(i=1)^L)$ 为 BTH 转换生成的 HSN。当脉冲长度 $L -> oo$ 时，表征值 $X$ 满足：\ #box[$ sqrt(L)(X - x) -->^d sN(0, 2^(2k) Var X_1), $] 其中 $-->^d$ 表示依分布收敛（弱收敛），$sN(mu, sigma^2)$ 代表均值为 $mu$，方差为 $sigma^2$ 的正态分布。上式也可以记为 \ #box[$ X tilde^a sN(x, 2^(2k) / L Var X_1) = sN(x, Var X), $] 其中 $tilde^a$ 表示“渐近服从于”。
 ]<prop:jjzt>
 
 #pf[
-  首先根据@de:bzz，将 $X$ 写为脉冲串 $X_i$ 的算术平均形式，即 \ #box[$
-    X = 2^k / L sum_(i=1)^L X_i = 2^k dot overline(X)_L,
-  $] 其中 $overline(X)_L$ 是随机变量列 ${X_i}$ 的样本均值。在@prop:bthvalid 中已经证明了 ${X_i}_(i=1)^L$ 是 i.i.d. 的，又在@prop:Var1 中证明 $X_i$ 的二阶矩存在，其期望 $uE[X_i] = 2^(-k)x$，方差 $Var X_i < oo$，那么应用 Levy-Lindeberg 中心极限定理@durrett2019probability 知道样本均值满足 \ #box[$
-    sqrt(L)(overline(X)_L - 2^(-k)x) -->^d sN(0, Var X_i).
-  $] 那么自然可以求得 $X = 2^k overline(X)_L$ 的渐近分布为 \ #box[$
-    sqrt(L)(X - x) -->^d sN(0, 2^(2k)Var X_1).
-  $] 
+  首先根据@de:bzz，将 $X$ 写为脉冲串 $X_i$ 的算术平均形式，即 \ #box[$ X = 2^k / L sum_(i=1)^L X_i = 2^k dot overline(X)_L, $] 其中 $overline(X)_L$ 是随机变量列 ${X_i}$ 的样本均值。在@prop:bthvalid 中已经证明了 ${X_i}_(i=1)^L$ 是 i.i.d. 的，又在@prop:Var1 中证明 $X_i$ 的二阶矩存在，其期望 $uE[X_i] = 2^(-k)x$，方差 $Var X_i < oo$，那么应用 Levy-Lindeberg 中心极限定理@durrett2019probability 知道样本均值满足 \ #box[$ sqrt(L)(overline(X)_L - 2^(-k)x) -->^d sN(0, Var X_i). $] 那么自然可以求得 $X = 2^k overline(X)_L$ 的渐近分布为 \ #box[$ sqrt(L)(X - x) -->^d sN(0, 2^(2k)Var X_1). $]
 ]
 
 @prop:jjzt 表明 HSN 的表征误差 $(X - x)$ 的标准差以 $1\/sqrt(L)$ 的速度衰减。这与传统概率计算（SC）的精度特性一致，说明 HSN 在保持随机计算鲁棒性的同时，严格遵循大数定律。在实际电路设计中，基于此渐近正态性，我们可以利用正态分布的分位数（如 $1.96sigma$）来估算在给定脉冲长度 $L$ 下，计算结果落在目标精度范围内的概率（置信水平）。另外，由于 $X$ 实际上是在离散网格（步长为 $alpha = 2^k\/L$）上取值的，当 $L$ 较小时，它呈现为离散的二项式样分布；随着 $L -> oo$，网格变细且分布形态趋于平滑，最终弱收敛于连续的正态分布概率密度函数。
@@ -718,16 +686,12 @@ BTH 转换的这一特性表明，HSN 的统计波动不仅源于概率采样本
 在定义 HSN 乘法之前，必须明确运算分量之间的统计独立性，这是确保期望值满足乘法结合律的前提。
 
 #de([独立])[
-  称两个 HSN $vX, vY$ 相互独立，如果它们的脉冲序列的并集 \ #box[$
-    {X_i}_(i=1)^(L_X)union{Y_i}_(i=1)^(L_Y) = {X_1, X_2, ..., X_L_X, Y_1, Y_2, ..., Y_L_Y}
-  $] 为独立随机变量集合。
+  称两个 HSN $vX, vY$ 相互独立，如果它们的脉冲序列的并集 \ #box[$ {X_i}_(i=1)^(L_X)union{Y_i}_(i=1)^(L_Y) = {X_1, X_2, ..., X_L_X, Y_1, Y_2, ..., Y_L_Y} $] 为独立随机变量集合。
 ]
 
 #de([乘法])[
-  设$vX, vY$ 为两个相互独立且它们的脉冲长度相同的 HSN，记为 \ #box[$
-    vX = (m_X, k_X, {X_i}_(i=1)^L), quad
-    vY = (m_Y, k_Y, {Y_i}_(i=1)^L).
-  $]
+  设$vX, vY$ 为两个相互独立且它们的脉冲长度相同的 HSN，记为 \ #box[$ vX = (m_X, k_X, {X_i}_(i=1)^L), quad
+  vY = (m_Y, k_Y, {Y_i}_(i=1)^L). $]
   定义乘法运算 $vZ = vX vY$，其结果 $vZ = (m_Z, k_Z, {Z_i}_(i=1)^L)$ 满足：
 
   - $m_Z = m_X + m_Y$（物理位宽叠加）；
@@ -740,7 +704,7 @@ BTH 转换的这一特性表明，HSN 的统计波动不仅源于概率采样本
 ]
 
 #pf[
-由于 $X_i$ 是 $m_X$ 位整数，$Y_i$ 是 $m_Y$ 位整数，其乘积 $Z_i = X_i Y_i$ 的最大值为 $(2^(m_X)-1)(2^(m_Y)-1) < 2^(m_X+m_Y)-1$。因此，$Z_i$ 几乎处处为 $m_Z$ 位二进制数。另外，由于 ${X_i}$ 与 ${Y_i}$ 相互独立且各自满足 i.i.d. 条件，根据独立随机变量函数变换的性质，其积序列 ${X_i Y_i}$ 亦满足 i.i.d 条件。
+  由于 $X_i$ 是 $m_X$ 位整数，$Y_i$ 是 $m_Y$ 位整数，其乘积 $Z_i = X_i Y_i$ 的最大值为 $(2^(m_X)-1)(2^(m_Y)-1) < 2^(m_X+m_Y)-1$。因此，$Z_i$ 几乎处处为 $m_Z$ 位二进制数。另外，由于 ${X_i}$ 与 ${Y_i}$ 相互独立且各自满足 i.i.d. 条件，根据独立随机变量函数变换的性质，其积序列 ${X_i Y_i}$ 亦满足 i.i.d 条件。
 ]
 
 #prop([乘法无偏性])[
@@ -748,14 +712,12 @@ BTH 转换的这一特性表明，HSN 的统计波动不仅源于概率采样本
 ]
 
 #pf[
-根据 HSN 表征值的定义及期望的性质，推导如下：\ #box[$
-E[Z] &= E[2^(k_Z)/L sum_(i=1)^L Z_i ] 
-= (2^(k_X+k_Y))/(L) sum_(i=1)^L E[X_i Y_i] 
-= (2^(k_X) dot 2^(k_Y))/(L) dot L dot E[X_i] E[Y_i] \
-&= (2^(k_X) E[X_i]) \cdot (2^(k_Y) E[Y_i]) 
-= ( 2^(k_X) dot (E[X])/(2^(k_X)) ) dot ( 2^(k_Y) dot (E[Y])/(2^(k_Y)) ) \
-&= E[X] E[Y].
-$] 若 $E[X]=x, E[Y]=y$，则 $E[Z]=x y$。
+  根据 HSN 表征值的定义及期望的性质，推导如下：\ #box[$ E[Z] & = E[2^(k_Z)/L sum_(i=1)^L Z_i ]
+         = (2^(k_X+k_Y))/(L) sum_(i=1)^L E[X_i Y_i]
+         = (2^(k_X) dot 2^(k_Y))/(L) dot L dot E[X_i] E[Y_i] \
+       & = (2^(k_X) E[X_i]) \cdot (2^(k_Y) E[Y_i])
+         = ( 2^(k_X) dot (E[X])/(2^(k_X)) ) dot ( 2^(k_Y) dot (E[Y])/(2^(k_Y)) ) \
+       & = E[X] E[Y]. $] 若 $E[X]=x, E[Y]=y$，则 $E[Z]=x y$。
 ]
 
 === 乘法对表征空间的影响
@@ -763,32 +725,22 @@ $] 若 $E[X]=x, E[Y]=y$，则 $E[Z]=x y$。
 根据乘法定义@de:cf，乘积 $vZ = vX vY$ 的表征空间由 $X_i Y_i$ 的取值特性决定。本节推导其表征空间的离散结构演化。
 
 #prop([乘法表征空间])[
-  设 $vX = (m_X, k_X, {X_i})$ 与 $vY = (m_Y, k_Y, {Y_i})$ 独立，其乘积为 $vZ = (m_Z, k_Z, {Z_i})$。令 $alpha_X, alpha_Y$ 分别为分量的编码精度，则 $vZ$ 的表征值 $Z$ a.s. 取值于如下集合：\ #box[$ { z dot (alpha_X alpha_Y dot L) | z in ZZ, 0 <= z <= L(2^(m_X)-1)(2^(m_Y)-1) } \ 
+  设 $vX = (m_X, k_X, {X_i})$ 与 $vY = (m_Y, k_Y, {Y_i})$ 独立，其乘积为 $vZ = (m_Z, k_Z, {Z_i})$。令 $alpha_X, alpha_Y$ 分别为分量的编码精度，则 $vZ$ 的表征值 $Z$ a.s. 取值于如下集合：\ #box[$ { z dot (alpha_X alpha_Y dot L) | z in ZZ, 0 <= z <= L(2^(m_X)-1)(2^(m_Y)-1) } \
   subset sS_Z = { z dot (alpha_X alpha_Y dot L) | z in ZZ, 0 <= z <= L(2^(m_Z)-1) }. $]
 ]
 
 #pf[
-  根据 $vZ$ 的表征值定义, \ #box[$
-  Z = 2^(k_Z) / L sum_(i=1)^L Z_i = (2^(k_X + k_Y)) / L sum_(i=1)^L X_i Y_i 
-  $] 由编码精度定义 $alpha_X = 2^(k_X)\/L, alpha_Y = 2^(k_Y)\/L$，上式可改写为 \ #box[$
-  Z = (alpha_X L dot alpha_Y L) / L sum_(i=1)^L X_i Y_i = (alpha_X alpha_Y dot L) sum_(i=1)^L X_i Y_i. 
-  $] 由于 $X_i, Y_i$ 分别为 $m_X, m_Y$ 位整数，其积 $X_i Y_i$ 亦为非负整数。令 $z = sum_(i=1)^L X_i Y_i$，则 $z$ 的取值范围为 $[0, L(2^(m_X)-1)(2^(m_Y)-1)]$ 之间的整数。
+  根据 $vZ$ 的表征值定义, \ #box[$ Z = 2^(k_Z) / L sum_(i=1)^L Z_i = (2^(k_X + k_Y)) / L sum_(i=1)^L X_i Y_i $] 由编码精度定义 $alpha_X = 2^(k_X)\/L, alpha_Y = 2^(k_Y)\/L$，上式可改写为 \ #box[$ Z = (alpha_X L dot alpha_Y L) / L sum_(i=1)^L X_i Y_i = (alpha_X alpha_Y dot L) sum_(i=1)^L X_i Y_i. $] 由于 $X_i, Y_i$ 分别为 $m_X, m_Y$ 位整数，其积 $X_i Y_i$ 亦为非负整数。令 $z = sum_(i=1)^L X_i Y_i$，则 $z$ 的取值范围为 $[0, L(2^(m_X)-1)(2^(m_Y)-1)]$ 之间的整数。
 
   因此，$Z$ 构成的集合是以 $alpha_Z = alpha_X alpha_Y dot L$ 为步长的等差数列。
 ]
 
 #prop([精度退化])[
-  乘法运算后，结果的编码精度 $alpha_Z$ 与分量精度满足：\ #box[$
-    alpha_Z = L dot alpha_X alpha_Y 
-  $] 即相对于理想的 $alpha_X alpha_Y$，HSN 的乘法引入了因子为 $L$ 的编码精度损失。
+  乘法运算后，结果的编码精度 $alpha_Z$ 与分量精度满足：\ #box[$ alpha_Z = L dot alpha_X alpha_Y $] 即相对于理想的 $alpha_X alpha_Y$，HSN 的乘法引入了因子为 $L$ 的编码精度损失。
 ]<prop:jdth>
 
 #pf[
-  理想情况下，两个数相乘的编码精度应为各自精度的积。然而在 HSN 框架下\ #box[$
-    alpha_Z = 2^(k_Z) / L = 2^(k_X + k_Y) / L 
-  $] 而 \ #box[$
-    alpha_X alpha_Y = 2^(k_X + k_Y) / L^2,
-  $] 显然有 $alpha_Z = L dot (alpha_X alpha_Y)$。这意味着在相同的脉冲长度 $L$ 下，乘法运算会导致表征空间的分辨率稀疏化。
+  理想情况下，两个数相乘的编码精度应为各自精度的积。然而在 HSN 框架下\ #box[$ alpha_Z = 2^(k_Z) / L = 2^(k_X + k_Y) / L $] 而 \ #box[$ alpha_X alpha_Y = 2^(k_X + k_Y) / L^2, $] 显然有 $alpha_Z = L dot (alpha_X alpha_Y)$。这意味着在相同的脉冲长度 $L$ 下，乘法运算会导致表征空间的分辨率稀疏化。
 ]
 
 @prop:jdth 指出的这种表征空间的变化提示我们，在进行深度 HSN 运算链路设计时，可能需要通过其他方法来补偿乘法带来的精度退化。
@@ -798,28 +750,16 @@ $] 若 $E[X]=x, E[Y]=y$，则 $E[Z]=x y$。
 本节探讨乘法运算 $vZ = vX vY$ 如何导致统计误差的累积。
 
 #prop([乘法方差公式])[
-  设独立 HSN $vX, vY$ 的表征值期望分别为 $mu_X, mu_Y$，方差分别为 $sigma_X^2, sigma_Y^2$，则乘积 $vZ$ 的表征值 $Z$ 的方差满足：\ #box[$
-  Var Z = L sigma_X^2 sigma_Y^2 + mu_X^2 sigma_Y^2 + mu_Y^2 sigma_X^2.
-  $]
+  设独立 HSN $vX, vY$ 的表征值期望分别为 $mu_X, mu_Y$，方差分别为 $sigma_X^2, sigma_Y^2$，则乘积 $vZ$ 的表征值 $Z$ 的方差满足：\ #box[$ Var Z = L sigma_X^2 sigma_Y^2 + mu_X^2 sigma_Y^2 + mu_Y^2 sigma_X^2. $]
 ]<prop:cffcgs>
 
 #pf[
-  首先考察单个采样点 $Z_i = X_i Y_i$ 的二阶矩。由 $X_i, Y_i$ 独立性得\ #box[$
-  uE[Z_i^2] = uE[X_i^2 Y_i^2] = uE[X_i^2] uE[Y_i^2], 
-  $] 代入方差定义式 $uE[Y^2] = Var Y + uE[Y]^2$ 有 \ #box[$
-  uE[Z_i^2] &= (Var X_1 + uE[X_1]^2)(Var Y_1 + uE[Y_1]^2) \
-   &= Var X_1 Var Y_1 + uE[X_1]^2 Var Y_1 + uE[Y_1]^2 Var X_1 + uE[X_1]^2 uE[Y_1]^2,
-   $] 进而得到单点方差\ #box[$
-   Var Z_1 &= uE[Z_i^2] - (uE[X_1]uE[Y_1])^2\
-   &= Var X_1 Var Y_1 + uE[X_1]^2 Var Y_1 + uE[Y_1]^2 Var X_1.
-   $] 根据表征值方差与单点方差的关系 $Var Z = (2^(2 k_Z) \/ L) Var Z_1$ 得到 \ #box[$
-   Var Z = 2^(2 k_X + 2 k_Y) / L (Var X_1 Var Y_1 + uE[X_1]^2 Var Y_1 + uE[Y_1]^2 Var X_1).
-   $] 注意到 $sigma_X^2 = (2^(2 k_X) \/ L) Var X_1$ 以及 $mu_X = 2^(k_X) uE[X_1]$，代入上式进行整理即有 \ #box[$
-   Var Z &= L dot (2^(2 k_X) / L Var X_1) dot (2^(2 k_Y) / L Var Y_1) +\
-   & quad (2^(k_X) uE[X_1])^2 dot (2^(2 k_Y) / L Var Y_1) +\
-   & quad (2^(k_Y) uE[Y_1])^2 dot (2^(2 k_X) / L Var X_1) \
-  &= L sigma_X^2 sigma_Y^2 + mu_X^2 sigma_Y^2 + mu_Y^2 sigma_X^2.
-  $]
+  首先考察单个采样点 $Z_i = X_i Y_i$ 的二阶矩。由 $X_i, Y_i$ 独立性得\ #box[$ uE[Z_i^2] = uE[X_i^2 Y_i^2] = uE[X_i^2] uE[Y_i^2], $] 代入方差定义式 $uE[Y^2] = Var Y + uE[Y]^2$ 有 \ #box[$ uE[Z_i^2] & = (Var X_1 + uE[X_1]^2)(Var Y_1 + uE[Y_1]^2) \
+            & = Var X_1 Var Y_1 + uE[X_1]^2 Var Y_1 + uE[Y_1]^2 Var X_1 + uE[X_1]^2 uE[Y_1]^2, $] 进而得到单点方差\ #box[$ Var Z_1 & = uE[Z_i^2] - (uE[X_1]uE[Y_1])^2 \
+          & = Var X_1 Var Y_1 + uE[X_1]^2 Var Y_1 + uE[Y_1]^2 Var X_1. $] 根据表征值方差与单点方差的关系 $Var Z = (2^(2 k_Z) \/ L) Var Z_1$ 得到 \ #box[$ Var Z = 2^(2 k_X + 2 k_Y) / L (Var X_1 Var Y_1 + uE[X_1]^2 Var Y_1 + uE[Y_1]^2 Var X_1). $] 注意到 $sigma_X^2 = (2^(2 k_X) \/ L) Var X_1$ 以及 $mu_X = 2^(k_X) uE[X_1]$，代入上式进行整理即有 \ #box[$ Var Z & = L dot (2^(2 k_X) / L Var X_1) dot (2^(2 k_Y) / L Var Y_1) + \
+        & quad (2^(k_X) uE[X_1])^2 dot (2^(2 k_Y) / L Var Y_1) + \
+        & quad (2^(k_Y) uE[Y_1])^2 dot (2^(2 k_X) / L Var X_1) \
+        & = L sigma_X^2 sigma_Y^2 + mu_X^2 sigma_Y^2 + mu_Y^2 sigma_X^2. $]
 ]
 
 通过@prop:cffcgs，我们可以观察到 HSN 乘法误差的两个组成部分：
@@ -834,25 +774,13 @@ $] 若 $E[X]=x, E[Y]=y$，则 $E[Z]=x y$。
 本节讨论当脉冲长度 $L -> oo$ 时，乘积 $vZ = vX vY$ 的分布演化。
 
 #prop([乘法渐近正态性])[
-  设独立 HSN $vX, vY$ 满足 $sqrt(L)(X - mu_X) ->^d N(0, sigma_(X_1)^2)$ 与 $sqrt(L)(Y - mu_Y) ->^d N(0, sigma_(Y_1)^2)$。则其乘积 $Z$ 满足$
-  sqrt(L)(Z - mu_X mu_Y) ->^d sN(0, mu_Y^2 sigma_(X_1)^2 + mu_X^2 sigma_(Y_1)^2). 
-  $
+  设独立 HSN $vX, vY$ 满足 $sqrt(L)(X - mu_X) ->^d N(0, sigma_(X_1)^2)$ 与 $sqrt(L)(Y - mu_Y) ->^d N(0, sigma_(Y_1)^2)$。则其乘积 $Z$ 满足$ sqrt(L)(Z - mu_X mu_Y) ->^d sN(0, mu_Y^2 sigma_(X_1)^2 + mu_X^2 sigma_(Y_1)^2). $
 ]<prop:cfjjztx>
 
 #pf[
-  定义二元函数 $g(x, y) = x dot y$。显然 $g$ 在 $(mu_X, mu_Y)$ 处一阶连续可微。其梯度向量（Jacobi 矩阵）为 \ #box[$
-  nabla g = ( (partial g) / (partial x), (partial g) / (partial y) ) = (y, x). 
-  $]  在均值点 $(mu_X, mu_Y)$ 处，有 $nabla g|_(mu) = (mu_Y, mu_X)$。
+  定义二元函数 $g(x, y) = x dot y$。显然 $g$ 在 $(mu_X, mu_Y)$ 处一阶连续可微。其梯度向量（Jacobi 矩阵）为 \ #box[$ nabla g = ( (partial g) / (partial x), (partial g) / (partial y) ) = (y, x). $]  在均值点 $(mu_X, mu_Y)$ 处，有 $nabla g|_(mu) = (mu_Y, mu_X)$。
 
-  由于 $vX$ 与 $vY$ 独立，其联合渐近分布为 \ #box[$
-  sqrt(L) ( (X - mu_X), (Y - mu_Y) ) ->^d sN( (0, 0)^T, diag(sigma_(X_1)^2, sigma_(Y_1)^2) ),
-  $] 根据 *Delta 方法*，函数映射后的渐近分布为 \ #box[$
-  sqrt(L)(g(X, Y) - g(mu_X, mu_Y)) ->^d sN(0, (nabla g) dot Sigma dot (nabla g)^T),
-  $] 代入梯度向量与协方差矩阵 $Sigma$ 得到 \ #box[$
-  sigma_Z^2 = (mu_Y, mu_X) ( (sigma_(X_1)^2, 0), (0, sigma_(Y_1)^2) ) (mu_Y, mu_X)^T = mu_Y^2 sigma_(X_1)^2 + mu_X^2 sigma_(Y_1)^2,
-  $] 因此得出 \ #box[$
-  sqrt(L)(Z - mu_X mu_Y) ->^d N(0, mu_Y^2 sigma_(X_1)^2 + mu_X^2 sigma_(Y_1)^2).
-  $]
+  由于 $vX$ 与 $vY$ 独立，其联合渐近分布为 \ #box[$ sqrt(L) ( (X - mu_X), (Y - mu_Y) ) ->^d sN((0, 0)^T, diag(sigma_(X_1)^2, sigma_(Y_1)^2)), $] 根据 *Delta 方法*，函数映射后的渐近分布为 \ #box[$ sqrt(L)(g(X, Y) - g(mu_X, mu_Y)) ->^d sN(0, (nabla g) dot Sigma dot (nabla g)^T), $] 代入梯度向量与协方差矩阵 $Sigma$ 得到 \ #box[$ sigma_Z^2 = (mu_Y, mu_X) ( (sigma_(X_1)^2, 0), (0, sigma_(Y_1)^2) ) (mu_Y, mu_X)^T = mu_Y^2 sigma_(X_1)^2 + mu_X^2 sigma_(Y_1)^2, $] 因此得出 \ #box[$ sqrt(L)(Z - mu_X mu_Y) ->^d N(0, mu_Y^2 sigma_(X_1)^2 + mu_X^2 sigma_(Y_1)^2). $]
 ]
 
 == 比例加法
@@ -860,9 +788,7 @@ $] 若 $E[X]=x, E[Y]=y$，则 $E[Z]=x y$。
 比例加法通过对两个 HSN 进行加权平均，确保运算结果在硬件位宽允许的表征范围内。类似乘法，此处直接给出比例加法的相关结果及简要证明。
 
 #de([比例加法])[
-  设 HSN $vX, vY$ 脉冲长度均为 $L$，记为 \ #box[$
-  vX = (m_X, k_X, {X_i}), quad vY = (m_Y, k_Y, {Y_i}).
-  $] 为简化硬件实现，设 $m_X = m_Y = m$ 且 $k_X = k_Y = k$。定义比例加法 $(m_Z, k_Z, {Z_i}) = vZ = vX plus vY$ 如下：
+  设 HSN $vX, vY$ 脉冲长度均为 $L$，记为 \ #box[$ vX = (m_X, k_X, {X_i}), quad vY = (m_Y, k_Y, {Y_i}). $] 为简化硬件实现，设 $m_X = m_Y = m$ 且 $k_X = k_Y = k$。定义比例加法 $(m_Z, k_Z, {Z_i}) = vZ = vX plus vY$ 如下：
 
   - $m_Z = m$；
   - $k_Z = k + 1$；
@@ -877,50 +803,34 @@ $] 若 $E[X]=x, E[Y]=y$，则 $E[Z]=x y$。
 
 #pf[
   1. 位宽约束：由于 $X_i, Y_i$ 均为 $m$ 位整数，其最大值为 $2^m - 1$。
-     则 $Z_i = X_i + Y_i <= 2(2^m - 1) = 2^(m+1) - 2$。
-     注意到虽然 $Z_i$ 可能超过 $m$ 位，但在 HSN 定义中，表征上限由 $m$ 和 $k$ 共同决定。在比例加法中，$k_Z = k + 1$ 实际上完成了对数值的“空间稀释”。从硬件存储角度看，$Z_i$ 仅需 $m+1$ 位存储，或通过截断/饱和处理保持在 $m$ 位（若 $m$ 足够大）。
+    则 $Z_i = X_i + Y_i <= 2(2^m - 1) = 2^(m+1) - 2$。
+    注意到虽然 $Z_i$ 可能超过 $m$ 位，但在 HSN 定义中，表征上限由 $m$ 和 $k$ 共同决定。在比例加法中，$k_Z = k + 1$ 实际上完成了对数值的“空间稀释”。从硬件存储角度看，$Z_i$ 仅需 $m+1$ 位存储，或通过截断/饱和处理保持在 $m$ 位（若 $m$ 足够大）。
   2. i.i.d. 性质：由 $X_i, Y_i$ 的独立性及同分布性，其和序列 ${Z_i}$ 显然满足独立同分布。
 ]
 
 #prop([加法无偏性])[
-  比例加法满足 \ #box[$
-  E[Z] = (E[X] + E[Y]) / 2.
-  $]
+  比例加法满足 \ #box[$ E[Z] = (E[X] + E[Y]) / 2. $]
 ]
 
 #pf[
-  根据表征值定义，\ #box[$
-  E[Z] &= 2^(k_Z) / L sum_(i=1)^L E[Z_i] = 2^(k+1) / L sum_(i=1)^L (E[X_i] + E[Y_i]) \
-&= 2 dot [display(2^k / L sum_(i=1)^L E[X_i] + 2^k / L sum_(i=1)^L E[Y_i] )] / 2.
- $] 由于 $E[X] = 2^k E[X_i]$ 且 $E[Y] = 2^k E[Y_i]$，代入得 \ #box[$
- E[Z] = (E[X] + E[Y]).
- $]
+  根据表征值定义，\ #box[$ E[Z] & = 2^(k_Z) / L sum_(i=1)^L E[Z_i] = 2^(k+1) / L sum_(i=1)^L (E[X_i] + E[Y_i]) \
+       & = 2 dot [display(2^k / L sum_(i=1)^L E[X_i] + 2^k / L sum_(i=1)^L E[Y_i])] / 2. $] 由于 $E[X] = 2^k E[X_i]$ 且 $E[Y] = 2^k E[Y_i]$，代入得 \ #box[$ E[Z] = (E[X] + E[Y]). $]
 ]
 
 #prop([比例加法方差])[
-  如果比例加法的运算数 $vX, vY$ 独立，那么比例加法结果的方差满足 \ #box[$
-  Var Z = 4 (Var X + Var Y).
-  $]
+  如果比例加法的运算数 $vX, vY$ 独立，那么比例加法结果的方差满足 \ #box[$ Var Z = 4 (Var X + Var Y). $]
 ]
 
 #pf[
-  \ #box[$
-  Var Z = 2^(2k_Z) / L Var(Z_1) = 2^(2k + 2) / L Var(X_1 + Y_1)
-  $] 由于 $X_1, Y_1$ 独立，方差具有可加性： \ #box[$
-  Var Z = 4 dot 2^(2k) / L (Var X_1 + Var Y_1) = 4 (sigma_X^2 + sigma_Y^2) 
-  $] 但注意到比例加法通常对应均值减半，若考察相对误差，其波动表现仍为合理。
+  \ #box[$ Var Z = 2^(2k_Z) / L Var(Z_1) = 2^(2k + 2) / L Var(X_1 + Y_1) $] 由于 $X_1, Y_1$ 独立，方差具有可加性： \ #box[$ Var Z = 4 dot 2^(2k) / L (Var X_1 + Var Y_1) = 4 (sigma_X^2 + sigma_Y^2) $] 但注意到比例加法通常对应均值减半，若考察相对误差，其波动表现仍为合理。
 ]
 
 #prop([比例加法渐近分布])[
-  当 $L -> oo$ 时，比例加法的结果满足\ #box[$
-  sqrt(L)(Z - (mu_X + mu_Y)) ->^d N(0, 4(sigma_(X_1)^2 + sigma_(Y_1)^2)).
-  $]
+  当 $L -> oo$ 时，比例加法的结果满足\ #box[$ sqrt(L)(Z - (mu_X + mu_Y)) ->^d N(0, 4(sigma_(X_1)^2 + sigma_(Y_1)^2)). $]
 ]
 
 #pf[
-  由 $X, Y$ 独立性及 Levy-Lindeberg 中心极限定理直接推导 \ #box[$
-  sqrt(L)(X + Y - (mu_X + mu_Y)) ->^d N(0, sigma_(X_1)^2 + sigma_(Y_1)^2). 
-  $] 由于 $Z$ 的定义中系数 $2^(k_Z)$ 比 $X, Y$ 的 $2^k$ 大一倍，即 $Z = 2(overline(X)_L + overline(Y)_L)$，故其方差项叠加 4 倍系数。
+  由 $X, Y$ 独立性及 Levy-Lindeberg 中心极限定理直接推导 \ #box[$ sqrt(L)(X + Y - (mu_X + mu_Y)) ->^d N(0, sigma_(X_1)^2 + sigma_(Y_1)^2). $] 由于 $Z$ 的定义中系数 $2^(k_Z)$ 比 $X, Y$ 的 $2^k$ 大一倍，即 $Z = 2(overline(X)_L + overline(Y)_L)$，故其方差项叠加 4 倍系数。
 ]
 
 = 已取得的阶段性研究成果
